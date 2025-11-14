@@ -1,10 +1,11 @@
+import Hero from "@/components/landing/hero";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import React from "react";
 
 function page() {
   return (
     <main className="min-h-screen bg-white dark:bg-black">
-      {/* <Hero /> */}
+      <Hero />
 
       {/* <Features />
       <HowItWorks /> */}
