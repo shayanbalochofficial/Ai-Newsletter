@@ -13,3 +13,46 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+//! Below here everything is written by me, NO AI TOOLS USED
+
+// User model
+// basically relies on clerk for auht
+model User {
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  clerkUserId String        @unique
+  rssFeeds    RssFeed[]
+  newsletters Newsletter[]
+  settings    UserSettings?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model UserSettings {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @unique  @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+
+  //B Settings
+  newsletterName  String?
+  description     String?
+  targetAudience  String?
+  defaultTone     String?
+
+  //Branding Settings
+  brandVoice  String?
+  companyName String?
+  industry    String?
+
+  //More Information
+  disclaimerText String?
+  defaultTags    String[]
+  customFooter   String?
+  senderName     String?
+  senderEmail    String?
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+}
