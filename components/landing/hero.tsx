@@ -72,6 +72,26 @@ function Hero() {
                     Feed 2
                   </span>
                 </div>
+
+                {/* RSS Feed orb3 */}
+                <div className="flex flex-col items-center gap-2">
+                  <div
+                    className="relative size-16 lg:size-24 rounded-full bg-linear-to-br from-indigo-500 to-indigo-600 shadow-lg flex items-center justify-center animate-pulse "
+                    style={{ animationDelay: "0.4s" }}
+                  >
+                    <Rss className="size-6 lg:size-10 text-white" />
+                  </div>
+                  <span className="text-[10px] lg:text-xs text-gray-500 dark:text-gray-400">
+                    Feed 3
+                  </span>
+                </div>
+
+                {/* Middle Arrows and Ai badge */}
+                <div className="flex flex-col items-center gap-2">
+                  <ArrowRight className="" />
+                  <ArrowRight className="" />
+                  <ArrowRight className="" />
+                </div>
               </div>
             </div>
           </div>
