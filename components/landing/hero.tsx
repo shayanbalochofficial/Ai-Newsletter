@@ -36,6 +36,45 @@ function Hero() {
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <CTAButtons />
           </div>
+
+          {/* Social Proof */}
+          <p className="mt-8 text-sm text-gray-500 dark:text-gray-500">
+            Join 1,000+ newsletter creators saving 5+ hours every week ·
+            Starting at $9/month{" "}
+          </p>
+        </div>
+
+        {/* Hero visual - RSS Feeds → Newsletter Transformation */}
+        <div className="relative mx-auto mt-16 max-w-6xl">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+            {/* Left side (RSS feed orbs) */}
+            <div className="relative shrink-0 w-full lg:w-auto">
+              <div className="grid grid-col-3 gap-2 lg:gap-6 max-w-xs mx-auto lg:max-w-none ">
+                {/* RSS Feed Orb 1 */}
+                <div className="flex flex-col items-center gap-2">
+                  <div className="relative size-16 lg:size-24 rounded-full bg-linear-to-br from-blue-500 to-blue-600 shadow-lg flex items-center justify-center animate-pulse">
+                    <Rss className="size-6 lg:size-10 text-white" />
+                  </div>
+                  <span className="text-[10px] text-gray-500 dark:text-gray-400 lg:text-xs">
+                    Feed 1
+                  </span>
+                </div>
+
+                {/* RSS Feed Orb 2 */}
+                <div className="flex flex-col items-center gap-2 ">
+                  <div
+                    className="relative size-16 lg:size-24 rounded-full bg-linear-to-br from-purple-500 to-purple-600 shadow-lg flex items-center justify-center animate-pulse"
+                    style={{ animationDelay: "0.2s" }}
+                  >
+                    <Rss className="size-6 lg:size-10 text-white" />
+                  </div>
+                  <span className="text-[10px] lg:text-xs text-gray-500 dark:text-gray-400">
+                    Feed 2
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
