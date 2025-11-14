@@ -80,16 +80,49 @@ model RssFeed{
 
 //RSS Article
 model RssArticle{
-  id     String 
-  feedId String
-  feed   RssFeed
-  guid   String
-  sourceFeedIds String[]
-  title   String
-  link    String
-  content String? // Article COntent Full
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  feedId        String    @db.ObjectId
+  feed          RssFeed   @relation(fields: [feedId], references: [id], onDelete: NoAction)
+  guid          String    @unique 
+  sourceFeedIds String[]  @db.ObjectId 
+  title         String
+  link          String
+  content       String? // Article Content [Full]
+  summary       String? // Article Summary
+  pubDate       DateTime
+  author        String?
+  categories    String[] //Array of categories
+  imageUrl      String?  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 
+  @@index([feedId])
+  @@index([pubDate])
+  @@index([feedId, pubDate])
+  @@index([sourceFeedIds])
 }
 
+// Newsletter Generation
+model Newsletter {
+  id                 String        @id @default(auto()) @map("_id") @db.ObjectId
+  userId             String        @db.ObjectId
+  user               User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  suggestedTitles    String[]
+  suggestedSubjectLines String[] 
+  body                  String
+  topAnnouncements      String[]
+  additionalInfo        String?
+  startDate             DateTime
+  endDate               DateTime
+  userInput             String? 
+  feedsUsed             String[]   @db.ObjectId
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+
+  @@index([userId])
+  @@index([userId, createdAt])
+  @@index([createdAt])
+
+}
 
 
