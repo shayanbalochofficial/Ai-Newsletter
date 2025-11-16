@@ -1,13 +1,15 @@
 import Hero from "@/components/landing/hero";
 import { SignedIn, UserButton } from "@clerk/nextjs";
-import React from "react";
+// import React from "react";
+import Features from "@/components/landing/features";
 
 function page() {
   return (
     <main className="min-h-screen bg-white dark:bg-black">
       <Hero />
 
-      {/* <Features />
+      <Features />
+      {/* 
       <HowItWorks /> */}
 
       <SignedIn>

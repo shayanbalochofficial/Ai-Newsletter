@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 async function CTAButtons() {
-  const { has, userId } = await auth();
+  const { has, userId } = await auth();  //! for clerk billing
   const hasPaidPlan =
     (await has({ plan: "pro" })) || (await has({ plan: "starter" }));
 
